@@ -1,5 +1,20 @@
 import { useState } from 'react'
 
+
+const Statistics = (props) => {
+  return (
+  <div>
+    <h1>statistics</h1>
+    <p>good: {props.good}</p>
+    <p>neutral: {props.neutral}</p>
+    <p>bad: {props.bad}</p>
+    <p>all: {props.total}</p>
+    <p>avarage: {props.avarage}</p>
+    <p>percentage: {props.percentage}</p>
+  </div>
+  )
+
+}
 const Button = ({ text, handler }) => {
   return (
     <button onClick={handler}>{text}</button>
@@ -22,14 +37,9 @@ const App = () => {
         <Button text={"good"} handler={() => setGood(good + 1)} />
         <Button text={"neutral"} handler={() => setNeutral(neutral + 1)} />
         <Button text={"bad"} handler={() => setBad(bad + 1)} />
+        <Statistics good={good} neutral={neutral} bad={bad} total={total} avarage={avarage} percentage={percentage}/>
       </div>
-      <h1>statistics</h1>
-      <p>good: {good}</p>
-      <p>neutral: {neutral}</p>
-      <p>bad: {bad}</p>
-      <p>all: {total}</p>
-      <p>avarage: {avarage}</p>
-      <p>percentage: {percentage}</p>
+
     </>
 
 
