@@ -2,17 +2,28 @@ import { useState } from 'react'
 
 
 const Statistics = (props) => {
-  return (
-  <div>
-    <h1>statistics</h1>
-    <p>good: {props.good}</p>
-    <p>neutral: {props.neutral}</p>
-    <p>bad: {props.bad}</p>
-    <p>all: {props.total}</p>
-    <p>avarage: {props.avarage}</p>
-    <p>percentage: {props.percentage}</p>
-  </div>
-  )
+  if (props.total === 0) {
+    return (
+      <div>
+        <h1>statistics</h1>
+        <p>No feedback given</p>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div>
+        <h1>statistics</h1>
+        <p>good: {props.good}</p>
+        <p>neutral: {props.neutral}</p>
+        <p>bad: {props.bad}</p>
+        <p>all: {props.total}</p>
+        <p>avarage: {props.avarage}</p>
+        <p>percentage: {props.percentage}</p>
+      </div>
+    )
+  }
+
 
 }
 const Button = ({ text, handler }) => {
@@ -37,7 +48,7 @@ const App = () => {
         <Button text={"good"} handler={() => setGood(good + 1)} />
         <Button text={"neutral"} handler={() => setNeutral(neutral + 1)} />
         <Button text={"bad"} handler={() => setBad(bad + 1)} />
-        <Statistics good={good} neutral={neutral} bad={bad} total={total} avarage={avarage} percentage={percentage}/>
+        <Statistics good={good} neutral={neutral} bad={bad} total={total} avarage={avarage} percentage={percentage} />
       </div>
 
     </>
